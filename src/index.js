@@ -11,3 +11,7 @@ export const responsiveHeight = (h) => {
 export const responsiveWidth = (w) => {
   return width*(w/100);
 }
+
+export const responsiveFontSize = (f) => {
+  return height*(f/100);
+}
