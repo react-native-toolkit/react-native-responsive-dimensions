@@ -20,12 +20,12 @@ import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-nat
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
-    height: responsiveHeight(50),
-    width: responsiveWidth(50),
+    height: responsiveHeight(50), // 50% of screen height
+    width: responsiveWidth(50), // 50% of screen width
     alignItems: 'center',
   },
   sampleText: {
-    fontSize: responsiveFontSize(2),
+    fontSize: responsiveFontSize(2), // 2% of total screen size
   }
 });
 ```

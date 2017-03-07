@@ -20,6 +20,6 @@
   "repository": "DaniAkash/react-native-responsive-dimensions",
   "license": "MIT",
   "dependencies": {
-    "react-native": "^0.42.0"
+    "react-native": "x"
   }
 }
