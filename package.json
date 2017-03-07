@@ -8,5 +8,8 @@
     "test": "exit 0"
   },
   "author": "DaniAkash <s.daniakash@gmail.com> (https://github.com/DaniAkash)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "react-native": "^0.42.0"
+  }
 }
