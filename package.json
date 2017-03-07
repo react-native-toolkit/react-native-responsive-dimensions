@@ -1,6 +1,6 @@
 {
   "name": "react-native-responsive-dimensions",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Resposive fontSize, height and width for your react-native components.",
   "main": "src/index.js",
   "scripts": {
