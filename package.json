@@ -7,7 +7,17 @@
     "start": "node src/index.js",
     "test": "exit 0"
   },
+  "keywords": [
+    "react-native",
+    "responsive",
+    "responsive-height",
+    "responsive-width",
+    "responsive-font-size",
+    "fontSize",
+    "responsive-dimensions"
+  ],
   "author": "DaniAkash <s.daniakash@gmail.com> (https://github.com/DaniAkash)",
+  "repository": "DaniAkash/react-native-responsive-dimensions",
   "license": "MIT",
   "dependencies": {
     "react-native": "^0.42.0"
