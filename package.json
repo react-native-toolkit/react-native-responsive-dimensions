@@ -19,7 +19,7 @@
   "author": "DaniAkash <s.daniakash@gmail.com> (https://github.com/DaniAkash)",
   "repository": "DaniAkash/react-native-responsive-dimensions",
   "license": "MIT",
-  "dependencies": {
+  "peerDependencies": {
     "react-native": "x"
   }
 }
