@@ -2,6 +2,8 @@
 
 Responsive height, width and responsive fontSize for react native components that automatically adjust themselves based on the screen size of the device. The dimensions can be used for any components like View, Image, Text etc.
 
+Responsive Font Size uses only the width of the device and auto adjusts to the screen. It will not depend on Height due to different aspect ratio across many devices.
+
 Installation
 ```sh
 #npm
