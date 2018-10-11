@@ -37,5 +37,6 @@ export const responsiveWidth = (w) => {
 };
 
 export const responsiveFontSize = (f) => {
-  return ((16/9)*width)*(f/100);
+  const tempHeight = (16/9)*width;
+  return Math.sqrt(Math.pow(tempHeight, 2) + Math.pow(width, 2))*(f/100);
 };
