@@ -4,3 +4,5 @@ yarn.lock
 .vscode
 npm-debug.log
 .idea
+.DS_Store
+RNResponsiveDimensionsExample/lib
