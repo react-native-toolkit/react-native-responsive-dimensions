@@ -1,6 +1,5 @@
 node_modules
 jsconfig.json
-yarn.lock
 .vscode
 npm-debug.log
 .idea
