@@ -45,7 +45,13 @@ One of the most important feedback received from the community is that handling 
 
 To address this, taking advantage of the new React Hooks API, responsive dimensions now include three custom hooks `useResponsiveHeight`, `useResponsiveWidth`, `useResponsiveFontSize` which will automatically re-calculate the responsive height, width and font size every time the device orientation or the display size changes.
 
-An example project has been included in RNResponsiveDimensionsExample directory which will explain how to use the new custom hooks and how they will differ from the usual responsive functions.
+An example project has been included in [RNResponsiveDimensionsExample](https://github.com/DaniAkash/react-native-responsive-dimensions/tree/master/RNResponsiveDimensionsExample) directory which will explain how to use the new custom hooks and how they will differ from the usual responsive functions.
+
+In portrait mode, both of them will produce the same result:
+![responsive-dimensions](./assets/Screenshot%202019-10-02%20at%2010.39.44%20PM.png)
+
+However, in landscape mode, only the views using responsive hooks will be updated as per the new height & width:
+![responsive-dimensions](./assets/Screenshot%202019-10-02%20at%2010.39.51%20PM.png)
 
 ## License
 
