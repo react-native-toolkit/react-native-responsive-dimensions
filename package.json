@@ -1,12 +1,16 @@
 {
   "name": "react-native-responsive-dimensions",
   "version": "2.0.1",
-  "description":
-    "Resposive fontSize, height and width for your react-native components.",
+  "description": "Resposive fontSize, height and width for your react-native components.",
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.js",
     "test": "exit 0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "keywords": [
     "react-native",
@@ -22,5 +26,10 @@
   "license": "MIT",
   "peerDependencies": {
     "react-native": ">=0.44.1"
+  },
+  "devDependencies": {
+    "husky": "^3.0.8",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1"
   }
 }
