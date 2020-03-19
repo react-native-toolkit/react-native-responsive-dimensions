@@ -12,6 +12,9 @@
       "pre-commit": "pretty-quick --staged"
     }
   },
+  "files": [
+    "lib"
+  ],
   "keywords": [
     "react-native",
     "responsive",
