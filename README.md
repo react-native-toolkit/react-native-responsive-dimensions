@@ -1,10 +1,40 @@
-# react-native-responsive-dimensions
+<div align="center">
 
-Responsive height, width and responsive fontSize for react native components that automatically adjust themselves based on the screen size of the device. The dimensions can be used for any components like View, Image, Text etc.
+# 📐📱 React Native Responsive Dimensions 🌐📏
 
-##### Responsive Font Size uses only the width of the device and auto adjusts to the screen. It will not depend on Height due to different aspect ratio across many devices.
+Responsive height, width and responsive fontSize for your react native components!
 
-Installation
+The dimensions auto adjust based on the window size (view port) or the screen size of the device ✨
+
+Support for responsive dimension hooks to help auto-adjust dimensions for devices whose display or screen sizes may change such as foldable phones or browser windows!
+
+<!-- [![Build Status][build-badge]][build]
+[![Maintainability][maintainability-badge]][maintainability-url]
+[![Test Coverage][coverage-badge]][coverage-url] -->
+
+[![Version][version-badge]][package]
+[![Downloads][downloads-badge]][npmtrends]
+[![Bundlephobia][bundle-phobia-badge]][bundle-phobia]
+
+[![Star on GitHub][github-star-badge]][github-star]
+[![Watch on GitHub][github-watch-badge]][github-watch]
+[![Twitter Follow][twitter-badge]][twitter]
+
+---
+
+### Compatible with Expo & React Native Web 🚀
+
+### PRs Welcome 👍✨
+
+</div>
+
+- 📦 [Installation](#installation)
+- ℹ️ [Usage](#usage)
+- 🎣 [Responsive Hooks](#responsive-hooks)
+- 💡 [Examples](#examples)
+- ✨ [Why Responsive Dimensions?](#why-responsive-dimensions)
+
+## Installation
 
 ```sh
 #npm
@@ -14,7 +44,14 @@ npm install --save react-native-responsive-dimensions
 yarn add react-native-responsive-dimensions
 ```
 
-The below snippet will create styles with a container of dynamic height, width and a sample text with dynamic font-size relative to the screen size of the device the app is run.
+## Usage
+
+While working with mobile devices, there are two kinds of dimensions you will have to focus on
+
+- Window Dimensions ﹣ which is the size of the window / view port on which your app is being displayed
+- Screen Dimensions ﹣ this is the total screen dimensions of your device (your app may occupy the entire screen or only a portion of the screen)
+
+### Working with Window Dimensions
 
 ```js
 import { StyleSheet } from "react-native";
@@ -27,32 +64,111 @@ import {
 const styles = StyleSheet.create({
   container: {
     justifyContent: "center",
-    height: responsiveHeight(50), // 50% of screen height
-    width: responsiveWidth(50), // 50% of screen width
+    height: responsiveHeight(50), // 50% of window height
+    width: responsiveWidth(50), // 50% of window width
     alignItems: "center"
   },
   sampleText: {
-    fontSize: responsiveFontSize(2) // 2% of total screen size
+    fontSize: responsiveFontSize(2) // 2% of total window size
   }
 });
 ```
 
-This will create a container(view/image) with height that is exactly 50% of the device's screen-height and width exactly 50% of the device's screen-height and a font with fontSize that occupies exactly 2% of the screen size.
+### Working with Screen Dimensions
 
-## Major Update - Responsive Hooks are here!!
+```js
+import { StyleSheet } from "react-native";
+import {
+  responsiveScreenHeight,
+  responsiveScreenWidth,
+  responsiveScreenFontSize
+} from "react-native-responsive-dimensions";
 
-One of the most important feedback received from the community is that handling responsive height and width when the device orientation changes is a huge pain point. Also, we have a new lineup of foldable devices whose dimensions are going to by dynamic.
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: "center",
+    height: responsiveScreenHeight(50), // 50% of Screen height
+    width: responsiveScreenWidth(50), // 50% of Screen width
+    alignItems: "center"
+  },
+  sampleText: {
+    fontSize: responsiveScreenFontSize(2) // 2% of total screen size
+  }
+});
+```
 
-To address this, taking advantage of the new React Hooks API, responsive dimensions now include three custom hooks `useResponsiveHeight`, `useResponsiveWidth`, `useResponsiveFontSize` which will automatically re-calculate the responsive height, width and font size every time the device orientation or the display size changes.
+## Responsive hooks
 
-An example project has been included in [RNResponsiveDimensionsExample](https://github.com/DaniAkash/react-native-responsive-dimensions/tree/master/RNResponsiveDimensionsExample) directory which will explain how to use the new custom hooks and how they will differ from the usual responsive functions.
+The above responsive dimension methods do not auto update once the value is set. They are suitable for using within `StyleSheet.create` method as the values don't change once set. However, you might want your views to respond to dimension changes such as screen rotation, device folding (in foldable devices) & browser window resizing (react-native-web).
 
-In portrait mode, both of them will produce the same result:
-![responsive-dimensions](./assets/Screenshot%202019-10-02%20at%2010.39.44%20PM.png)
+The values set by these hooks auto respond to changes. The following hooks are available for use ﹣
 
-However, in landscape mode, only the views using responsive hooks will be updated as per the new height & width:
-![responsive-dimensions](./assets/Screenshot%202019-10-02%20at%2010.39.51%20PM.png)
+- `useResponsiveHeight`
+- `useResponsiveWidth`
+- `useResponsiveFontSize`
+- `useResponsiveScreenHeight`
+- `useResponsiveScreenWidth`
+- `useResponsiveScreenFontSize`
+- `useDimensionsChange`
 
-## License
+### Sample Usage
 
-MIT
+```jsx
+import React from "react";
+import { View } from "react-native";
+import {
+  useResponsiveHeight,
+  useResponsiveWidth
+} from "react-native-responsive-dimensions";
+
+const App = () => {
+  const height = useResponsiveHeight(25);
+  const width = useResponsiveWidth(25);
+
+  return <View style={{ height, width }} />;
+};
+```
+
+### React to dimension changes with `useDimensionsChange`
+
+`useDimensionsChange` basically calls a function whenever the dimensions update. This is a good place to include your layoutanimations if your UI react to dimension updates and you want to make the transitions smooth.
+
+```jsx
+import React from "react";
+import { View, LayoutAnimation } from "react-native";
+import {
+  useResponsiveHeight,
+  useResponsiveWidth,
+  useDimensionsChange
+} from "react-native-responsive-dimensions";
+
+const App = () => {
+  const height = useResponsiveHeight(25);
+  const width = useResponsiveWidth(25);
+
+  useDimensionsChange(() => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+  });
+
+  return <View style={{ height, width }} />;
+};
+```
+
+[build]: https://github.com/DaniAkash/react-native-responsive-dimensions/actions
+[build-badge]: https://github.com/daniakash/react-native-responsive-dimensions/workflows/build/badge.svg
+[coverage-badge]: https://api.codeclimate.com/v1/badges/f7954c1e1686cabeeb97/test_coverage
+[coverage-url]: https://codeclimate.com/github/DaniAkash/react-native-responsive-dimensions/test_coverage
+[maintainability-badge]: https://api.codeclimate.com/v1/badges/f7954c1e1686cabeeb97/maintainability
+[maintainability-url]: https://codeclimate.com/github/DaniAkash/react-native-responsive-dimensions/maintainability
+[bundle-phobia-badge]: https://badgen.net/bundlephobia/minzip/react-native-responsive-dimensions
+[bundle-phobia]: https://bundlephobia.com/result?p=react-native-responsive-dimensions
+[downloads-badge]: https://img.shields.io/npm/dm/react-native-responsive-dimensions.svg?style=flat-square
+[npmtrends]: http://www.npmtrends.com/react-native-responsive-dimensions
+[package]: https://www.npmjs.com/package/react-native-responsive-dimensions
+[version-badge]: https://img.shields.io/npm/v/react-native-responsive-dimensions.svg?style=flat-square
+[twitter]: https://twitter.com/dani_akash_
+[twitter-badge]: https://img.shields.io/twitter/follow/dani_akash_?style=social
+[github-watch-badge]: https://img.shields.io/github/watchers/DaniAkash/react-native-responsive-dimensions.svg?style=social
+[github-watch]: https://github.com/DaniAkash/react-native-responsive-dimensions/watchers
+[github-star-badge]: https://img.shields.io/github/stars/DaniAkash/react-native-responsive-dimensions.svg?style=social
+[github-star]: https://github.com/DaniAkash/react-native-responsive-dimensions/stargazers
