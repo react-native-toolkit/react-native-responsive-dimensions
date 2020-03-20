@@ -4,9 +4,9 @@
 
 Responsive height, width and responsive fontSize for your react native components!
 
-The dimensions auto adjust based on the window size (view port) or the screen size of the device ✨
+The dimensions auto adjust based on the window size (view port) or the screen size of the device 🙌🏽
 
-Support for responsive dimension hooks to help auto-adjust dimensions for devices whose display or screen sizes may change such as foldable phones or browser windows!
+Support for responsive dimension hooks to help auto-adjust dimensions for devices whose display or screen sizes may change such as foldable phones or browser windows! 😎
 
 <!-- [![Build Status][build-badge]][build]
 [![Maintainability][maintainability-badge]][maintainability-url]
