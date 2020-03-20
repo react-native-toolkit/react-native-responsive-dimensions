@@ -67,6 +67,19 @@ type EffectCallback =
   | ((opts: EffectParams) => undefined)
   | ((opts: EffectParams) => void);
 
+const percentageCalculation = (max: number, val: number) => max * (val / 100);
+
+const fontCalculation = (height: number, width: number, val: number) => {
+  const widthDimension = height > width ? width : height;
+  const aspectRatioBasedHeight = (16 / 9) * widthDimension;
+  return percentageCalculation(
+    Math.sqrt(
+      Math.pow(aspectRatioBasedHeight, 2) + Math.pow(widthDimension, 2)
+    ),
+    val
+  );
+};
+
 export const useDimensionsChange = (effect: EffectCallback) => {
   const hasMountRef = useRef(false);
   const dimensions = useDimensionsListener();
@@ -87,76 +100,60 @@ export const useDimensionsChange = (effect: EffectCallback) => {
 
 export const responsiveHeight = (h: number) => {
   const { height } = Dimensions.get("window");
-  return height * (h / 100);
+  return percentageCalculation(height, h);
 };
 
 export const responsiveWidth = (w: number) => {
   const { width } = Dimensions.get("window");
-  return width * (w / 100);
+  return percentageCalculation(width, w);
 };
 
 export const responsiveFontSize = (f: number) => {
   const { height, width } = Dimensions.get("window");
-  const lowerSize = height > width ? width : height;
-  const tempHeight = (16 / 9) * lowerSize;
-  return (
-    Math.sqrt(Math.pow(tempHeight, 2) + Math.pow(lowerSize, 2)) * (f / 100)
-  );
+  return fontCalculation(height, width, f);
 };
 
 export const responsiveScreenHeight = (h: number) => {
   const { height } = Dimensions.get("screen");
-  return height * (h / 100);
+  return percentageCalculation(height, h);
 };
 
 export const responsiveScreenWidth = (w: number) => {
   const { width } = Dimensions.get("screen");
-  return width * (w / 100);
+  return percentageCalculation(width, w);
 };
 
 export const responsiveScreenFontSize = (f: number) => {
   const { height, width } = Dimensions.get("screen");
-  const lowerSize = height > width ? width : height;
-  const tempHeight = (16 / 9) * lowerSize;
-  return (
-    Math.sqrt(Math.pow(tempHeight, 2) + Math.pow(lowerSize, 2)) * (f / 100)
-  );
+  return fontCalculation(height, width, f);
 };
 
 export const useResponsiveHeight = (h: number) => {
   const { height } = useDimensionsListener().window;
-  return height * (h / 100);
+  return percentageCalculation(height, h);
 };
 
 export const useResponsiveWidth = (w: number) => {
   const { width } = useDimensionsListener().window;
-  return width * (w / 100);
+  return percentageCalculation(width, w);
 };
 
 export const useResponsiveFontSize = (f: number) => {
   const { height, width } = useDimensionsListener().window;
-  const lowerSize = height > width ? width : height;
-  const tempHeight = (16 / 9) * lowerSize;
-  return (
-    Math.sqrt(Math.pow(tempHeight, 2) + Math.pow(lowerSize, 2)) * (f / 100)
-  );
+  return fontCalculation(height, width, f);
 };
 
 export const useResponsiveScreenHeight = (h: number) => {
   const { height } = useDimensionsListener().screen;
-  return height * (h / 100);
+  return percentageCalculation(height, h);
 };
 
 export const useResponsiveScreenWidth = (w: number) => {
   const { width } = useDimensionsListener().screen;
-  return width * (w / 100);
+  return percentageCalculation(width, w);
 };
 
 export const useResponsiveScreenFontSize = (f: number) => {
   const { height, width } = useDimensionsListener().screen;
-  const lowerSize = height > width ? width : height;
-  const tempHeight = (16 / 9) * lowerSize;
-  return (
-    Math.sqrt(Math.pow(tempHeight, 2) + Math.pow(lowerSize, 2)) * (f / 100)
-  );
+  return fontCalculation(height, width, f);
 };
