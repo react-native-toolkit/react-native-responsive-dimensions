@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "build": "tsc -p .",
+    "start": "tsc -w",
     "test": "jest"
   },
   "files": [
