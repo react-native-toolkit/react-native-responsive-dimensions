@@ -4,13 +4,8 @@
   "description": "Resposive fontSize, height and width for your react-native components.",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "test": "exit 0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
+    "build": "tsc -p .",
+    "test": "jest"
   },
   "files": [
     "lib"
@@ -31,8 +26,23 @@
     "react-native": ">=0.44.1"
   },
   "devDependencies": {
-    "husky": "^3.0.8",
-    "prettier": "^1.18.2",
-    "pretty-quick": "^1.11.1"
+    "@react-native-community/eslint-config": "^0.0.7",
+    "@testing-library/react-native": "^5.0.3",
+    "@types/jest": "^25.1.4",
+    "@types/react": "^16.9.23",
+    "@types/react-native": "^0.61.23",
+    "@types/react-test-renderer": "^16.9.2",
+    "eslint": "^6.8.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-tsc": "^1.2.0",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "metro-react-native-babel-preset": "^0.59.0",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
+    "react": "^16.13.1",
+    "react-native": "^0.61.5",
+    "react-test-renderer": "^16.13.1",
+    "typescript": "^3.8.3"
   }
 }
