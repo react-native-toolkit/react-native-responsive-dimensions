@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsc -p .",
     "start": "tsc -w",
-    "test": "jest"
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
   "files": [
     "lib"
