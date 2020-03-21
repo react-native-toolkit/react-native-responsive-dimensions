@@ -2,16 +2,21 @@
   "name": "react-native-responsive-dimensions",
   "version": "3.1.0-beta-2",
   "description": "Resposive fontSize, height and width for your react-native components.",
-  "main": "lib/index.js",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
+  "react-native": "src/index.ts",
+  "types": "lib/typescript/src/index.d.ts",
+  "files": [
+    "lib/",
+    "src/"
+  ],
   "scripts": {
     "build": "tsc -p .",
     "start": "tsc -w",
     "test": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "prepare": "bob build"
   },
-  "files": [
-    "lib"
-  ],
   "keywords": [
     "react-native",
     "responsive",
@@ -27,7 +32,22 @@
   "peerDependencies": {
     "react-native": ">=0.44.1"
   },
+  "@react-native-community/bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      [
+        "commonjs",
+        {
+          "copyFlow": true
+        }
+      ],
+      "module",
+      "typescript"
+    ]
+  },
   "devDependencies": {
+    "@react-native-community/bob": "^0.10.0",
     "@react-native-community/eslint-config": "^0.0.7",
     "@testing-library/react-native": "^5.0.3",
     "@types/jest": "^25.1.4",

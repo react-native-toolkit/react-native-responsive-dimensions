@@ -12,7 +12,7 @@ import {
   useResponsiveScreenHeight,
   useResponsiveScreenWidth,
   useResponsiveScreenFontSize
-} from "../lib/index";
+} from "../src/index";
 import { render, cleanup } from "@testing-library/react-native";
 
 afterEach(cleanup);
