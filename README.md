@@ -8,9 +8,9 @@ The dimensions auto adjust based on the window size (view port) or the screen si
 
 Support for responsive dimension hooks to help auto-adjust dimensions for devices whose display or screen sizes may change such as foldable phones or browser windows! 😎
 
-<!-- [![Build Status][build-badge]][build]
+[![Build Status][build-badge]][build]
 [![Maintainability][maintainability-badge]][maintainability-url]
-[![Test Coverage][coverage-badge]][coverage-url] -->
+[![Test Coverage][coverage-badge]][coverage-url]
 
 [![Version][version-badge]][package]
 [![Downloads][downloads-badge]][npmtrends]
@@ -161,11 +161,25 @@ const App = () => {
 - [Using Responsive Height & Width (snack)][responsive-example]
 - [Using the Responsive Hooks (react-native-web)][responsive-hooks-example]
 
+## Why Responsive Dimensions
+
+I built responsive dimensions as a personal tool to tackle some of my problems I face during my everyday app development. You might want to use it if your usecase comes under one of the following scenarios.
+
+- While working with React Native UI (especially animations) there are lots of scenarios that require calculating a certain percentage of the display area.
+
+- If your app supports tablets then you might want to scale some of your fonts & UI Components based on the display size.
+
+- If you are using react-native-web or targetting foldable devices your UI needs to react to the changes in the window dimensions.
+
+## TODO
+
+- [ ] Fix Github Actions pipleline
+
 [build]: https://github.com/DaniAkash/react-native-responsive-dimensions/actions
 [build-badge]: https://github.com/daniakash/react-native-responsive-dimensions/workflows/build/badge.svg
-[coverage-badge]: https://api.codeclimate.com/v1/badges/f7954c1e1686cabeeb97/test_coverage
+[coverage-badge]: https://api.codeclimate.com/v1/badges/0cf535fb8d3da2aa4a91/test_coverage
 [coverage-url]: https://codeclimate.com/github/DaniAkash/react-native-responsive-dimensions/test_coverage
-[maintainability-badge]: https://api.codeclimate.com/v1/badges/f7954c1e1686cabeeb97/maintainability
+[maintainability-badge]: https://api.codeclimate.com/v1/badges/0cf535fb8d3da2aa4a91/maintainability
 [maintainability-url]: https://codeclimate.com/github/DaniAkash/react-native-responsive-dimensions/maintainability
 [bundle-phobia-badge]: https://badgen.net/bundlephobia/minzip/react-native-responsive-dimensions
 [bundle-phobia]: https://bundlephobia.com/result?p=react-native-responsive-dimensions
