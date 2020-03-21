@@ -171,10 +171,6 @@ I built responsive dimensions as a personal tool to tackle some of my problems I
 
 - If you are using react-native-web or targetting foldable devices your UI needs to react to the changes in the window dimensions.
 
-## TODO
-
-- [ ] Fix Github Actions pipleline
-
 [build]: https://github.com/DaniAkash/react-native-responsive-dimensions/actions
 [build-badge]: https://github.com/daniakash/react-native-responsive-dimensions/workflows/build/badge.svg
 [coverage-badge]: https://api.codeclimate.com/v1/badges/0cf535fb8d3da2aa4a91/test_coverage
