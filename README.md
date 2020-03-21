@@ -129,12 +129,12 @@ const App = () => {
 };
 ```
 
-### React to dimension changes with `useDimensionsChange`
+### Reacting to dimension changes with `useDimensionsChange`
 
-`useDimensionsChange` basically calls a function whenever the dimensions update. This is a good place to include your layoutanimations if your UI react to dimension updates and you want to make the transitions smooth.
+`useDimensionsChange` basically calls a function whenever the dimensions update with new window & screen dimensions as arguments. This is a good place to include your layout animations if your UI layout reacts to dimension updates and you want to make the transitions smooth.
 
 ```jsx
-import React from "react";
+import React, { useCallback } from "react";
 import { View, LayoutAnimation } from "react-native";
 import {
   useResponsiveHeight,
@@ -146,13 +146,20 @@ const App = () => {
   const height = useResponsiveHeight(25);
   const width = useResponsiveWidth(25);
 
-  useDimensionsChange(() => {
-    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
-  });
+  useDimensionsChange(
+    useCallback(({ window, screen }) => {
+      LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    }, [])
+  );
 
   return <View style={{ height, width }} />;
 };
 ```
+
+## Examples
+
+- [Using Responsive Height & Width (snack)][responsive-example]
+- [Using the Responsive Hooks (react-native-web)][responsive-hooks-example]
 
 [build]: https://github.com/DaniAkash/react-native-responsive-dimensions/actions
 [build-badge]: https://github.com/daniakash/react-native-responsive-dimensions/workflows/build/badge.svg
@@ -172,3 +179,5 @@ const App = () => {
 [github-watch]: https://github.com/DaniAkash/react-native-responsive-dimensions/watchers
 [github-star-badge]: https://img.shields.io/github/stars/DaniAkash/react-native-responsive-dimensions.svg?style=social
 [github-star]: https://github.com/DaniAkash/react-native-responsive-dimensions/stargazers
+[responsive-example]: https://snack.expo.io/@daniakash/responsive-dimensions
+[responsive-hooks-example]: https://codesandbox.io/s/react-native-responsive-dimensions-hooks-2cqm8
