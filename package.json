@@ -45,7 +45,6 @@
     ]
   },
   "devDependencies": {
-    "@architect/sandbox": "^1.10.0",
     "@react-native-community/bob": "^0.10.0",
     "@react-native-community/eslint-config": "^0.0.7",
     "@testing-library/react-native": "^5.0.3",
