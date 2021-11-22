@@ -21,9 +21,9 @@ const useDimensionsListener = () => {
       setScreenDimension(screen);
     }
 
-    Dimensions.addEventListener("change", handleDimensionChange);
+    let handleDimensionChangeLinstener = Dimensions.addEventListener("change", handleDimensionChange);
     return () => {
-      Dimensions.removeEventListener("change", handleDimensionChange);
+      handleDimensionChangeLinstener.remove();
     };
   }, []);
 
