@@ -71,7 +71,7 @@ export const useDimensionsChange = (effect: EffectCallback) => {
     } else {
       hasMountRef.current = true;
     }
-  }, [dimensions, effect]);
+  }, [dimensions.screen, dimensions.window, effect]);
 };
 
 export const responsiveHeight = (h: number) => {
