@@ -1,11 +1,25 @@
-import { useState, useEffect, useRef } from "react";
-import { Dimensions, ScaledSize } from "react-native";
+import { useState, useEffect, useRef,useCallback } from "react";
+import {Dimensions, ScaledSize} from "react-native";
+import {debounce} from "lodash"
+
+// declare debounced state functionality
+const useDebouncedState = (initialValue: any, durationInMs = 200) => {
+  const [internalState, setInternalState] = useState(initialValue);
+  const debouncedFunction = useCallback(debounce(setInternalState, durationInMs), [
+    setInternalState,
+    durationInMs
+  ]);
+  return [internalState, debouncedFunction];
+};
+
 
 const useDimensionsListener = () => {
-  const [screenDimension, setScreenDimension] = useState(
+
+  // use debounced state for dimensions
+  const [screenDimension, setScreenDimension] = useDebouncedState(
     Dimensions.get("screen")
   );
-  const [windowDimension, setWindowDimension] = useState(
+  const [windowDimension, setWindowDimension] = useDebouncedState(
     Dimensions.get("window")
   );
 
@@ -21,9 +35,9 @@ const useDimensionsListener = () => {
       setScreenDimension(screen);
     }
 
-    Dimensions.addEventListener("change", handleDimensionChange);
+    const listener = Dimensions.addEventListener("change", handleDimensionChange);
     return () => {
-      Dimensions.removeEventListener("change", handleDimensionChange);
+      listener.remove();
     };
   }, []);
 
